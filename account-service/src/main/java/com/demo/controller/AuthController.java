@@ -3,6 +3,8 @@ package com.demo.controller;
 import com.demo.payload.request.LoginRequest;
 import com.demo.payload.request.SignupRequest;
 import com.demo.service.AuthService;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +27,10 @@ public class AuthController {
 
     @PostMapping("/signin")
     @Operation(summary = "Authenticate user", description = "Validate credentials and return JWT plus user info")
+    @ApiResponses({
+            @ApiResponse(responseCode = "201", description = "Tạo quiz thành công"),
+            @ApiResponse(responseCode = "400", description = "Request không hợp lệ")
+    })
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
         return ResponseEntity.ok(authService.authenticateUser(loginRequest));
     }

@@ -1,5 +1,6 @@
 package com.demo.payload.request;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import lombok.ToString;
@@ -10,10 +11,11 @@ import lombok.ToString;
 
 @Data
 public class LoginRequest {
-
+	@Schema(description = "ID lớp học", example = "101")
 	@NotBlank(message = "Username is required")
   	private String username;
 
+	@Schema(description = "ID lớp học", example = "101")
 	@NotBlank(message = "Password is required")
 	@ToString.Exclude
 	private String password;
