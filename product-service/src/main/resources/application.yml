@@ -4,9 +4,9 @@ spring:
     name: product-service
   
   datasource:
-    url: ${DB_URL:jdbc:postgresql://localhost:5432/product_service}
-    username: postgres
-    password: 123456
+    url: jdbc:postgresql://14.225.211.164:5432/brainqna
+    username: brainqna
+    password: root@123
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
       maximum-pool-size: 20
